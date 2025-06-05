@@ -1,0 +1,73 @@
+/* src/components/HeroSection.scss */
+
+/* 1. 先讓 hero 覆蓋整個視窗寬度 */
+.hero {
+    position: relative;
+    width: 100vw;          /* 滿版寬度 */
+    left: 50%;             /* 以下兩行搭配，讓它撐滿整個畫面 */
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  
+    min-height: 100vh;
+    background: url('../assets/hero-bg.png') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  
+  /* 2. 半透明黑色遮罩 */
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* 3. 內容置中，限制在中央容器寬度 */
+  .hero__inner {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 1280px;  /* 這裡可依照你專案的 .container width 調整 */
+    margin: 0 auto;
+  }
+  
+  /* 4. Hero 中間的那顆 3D 圖示 */
+  .hero__icon {
+    width: 80px;
+    margin-bottom: 1rem;
+  }
+  
+  /* 5. 標題文字 */
+  .hero__title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  /* 6. Dashboard 截圖 */
+  .hero__dashboard img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* 7. 手機版響應 */
+  @media (max-width: 768px) {
+    .hero__title {
+      font-size: 1.8rem;
+    }
+    .hero__dashboard img {
+      max-width: 100%;
+    }
+  }
+  
+  /* 如果你希望給 <section> 本身一點上下內距，可以視情況加 */
+  .hero {
+    padding-top: 64px;  /* 避開固定的 Header (height: 64px)，確保不被蓋住 */
+  }
+  
