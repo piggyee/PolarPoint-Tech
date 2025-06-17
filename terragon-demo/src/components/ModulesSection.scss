@@ -1,0 +1,138 @@
+/* src/components/ModulesSection.scss */
+
+/* 1. 區塊背景與排版 */
+.modules {
+  position: relative;
+  left: calc((100% - 100vw) / 2);
+  width: 100vw;
+  background: #0f1121;
+  padding: 64px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.modules__inner {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.modules__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.modules__subtitle {
+  font-size: 1rem;
+  color: #bbb;
+  margin-bottom: 32px;
+}
+
+/* 2. Grid 排版：固定 gap、流動欄數、置中 */
+.modules__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(180px, 240px));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .modules__grid {
+    grid-template-columns: repeat(3, minmax(180px, 240px));
+  }
+}
+@media (max-width: 768px) {
+  .modules__grid {
+    grid-template-columns: repeat(2, minmax(180px, 240px));
+  }
+}
+@media (max-width: 480px) {
+  .modules__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3. 卡片：固定大小＋內容置中 */
+.modules__card {
+  position: relative;
+  width: 211px;
+  height: 250px;
+  padding: 24px 16px;
+  background: transparent;
+  border: 1px solid rgba(245, 243, 243, 0.171);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 卡片浮動效果 */
+.modules__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. 藍光條 ::before 特效 */
+.modules__card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 33%;                  /* 初始佔卡片寬度 33% */
+  height: 4px;
+  background: #3B82F6;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow:
+    0 10px 20px rgba(0, 159, 252, 0.6),
+    0 20px 40px rgba(0, 159, 246, 0.4);
+  transition: width 0.3s;
+}
+
+/* hover 縮短藍光條 */
+.modules__card:hover::before {
+  width: 20%;
+}
+
+/* 5. 圖示：置中、限制大小、hover 縮放 */
+.modules__icon {
+  width: 70%;
+  height: auto;
+  max-height: 140px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+.modules__card:hover .modules__icon {
+  transform: scale(0.8);
+}
+
+/* 6. 標題文字 */
+.modules__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 16px;
+  color: #fff;
+}
+
+/* 7. 描述文字：預設隱藏、hover 展開 */
+.modules__desc {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.4;
+  margin: 8px 0 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, opacity 0.3s;
+}
+
+.modules__card:hover .modules__desc {
+  max-height: 3rem;
+  opacity: 1;
+}
