@@ -1,114 +1,104 @@
 /* src/components/FeaturesSection.scss */
-
+/* src/components/FeaturesSection.scss */
 .features {
-    position: relative;
-    background: #f9f9f9;
-    padding: 0 0 4rem;  /* 上方改成 0，底部保留 4rem */
-  
-    /* 讓下方內容往下推，避免被半圓遮住文字 */
-    padding-top: 200px; /* 半圓高度的一半，需與偽元素高度搭配 */
-  }
-  
-  /* 改為「中間向下凹的半圓」，兩側保持直線 */
-  .features::before {
-    content: '';
-    position: absolute;
-    top: 0;                  /* 緊貼 features 的頂端 */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 800px;            /* 水平半圓區的寬度，螢幕寬度大於 800px 時，兩側展示平線 */
-    height: 400px;           /* 半圓直徑，半徑為 200px */
-    background: #f9f9f9;     /* 和 features 的背景色一致 */
-    border-top-left-radius: 400px;
-    border-top-right-radius: 400px;
-    /* 以上 border-top-left/right-radius 值要與 height 相同，才能構成完美半圓 */
-  
-    z-index: 1;
-  }
-  
-  .features__inner {
-    position: relative;  /* 內容要在偽元素之上 */
-    z-index: 2;
-    text-align: center;
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
-  
-  .features__title {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-    color: #111;
-    margin-top: 0; /* 文字向上貼，已經由 padding-top 推開 */
-  }
-  
-  .features__subtitle {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 2.5rem;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
+  position: relative;
+  margin-top: -200px;      /* 拉進 Hero 區 225px */
+  padding: 225px 0 4rem;   /* 推開內容，避免被半圓蓋住 */
+  overflow: visible;
+}
+
+.features__curve {
+  position: absolute;
+  top: 0;                  /* 緊貼 Hero 底部 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1400px;
+  height: 225px;
+  object-fit: none;
+  z-index: 2;              /* 一定要比 Hero 更高 */
+}
+
+.features__inner {
+  position: relative;
+  z-index: 3;              /* 文字、卡片都在半圓之上 */
+  text-align: center;
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 以下略，同前面的排版、卡片樣式 */
+
+
+.features__title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+  color: #111;
+}
+
+.features__subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin: 0 auto 2.5rem;
+  max-width: 760px;
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
   .features__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: 1fr;
   }
-  
-  /* 手機版：改成單欄 */
-  @media (max-width: 768px) {
-    .features__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  
-  .features__card {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 300px;
-    display: flex;
-    align-items: flex-end;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .features__card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  }
-  
-  .features__overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20%;
-    background: rgba(0, 0, 0, 0.4);
-  }
-  
-  .features__text {
-    position: relative;
-    padding: 1.2rem;
-    color: #fff;
-    z-index: 2;
-  }
-  
-  .features__card-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  .features__card-desc {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    max-height: 3em;
-    overflow: hidden;
-  }
-  
+}
+
+.features__card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.features__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.features__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  //background: rgba(0, 0, 0, 0.4);
+}
+
+.features__text {
+  position: relative;
+  padding: 1.2rem;
+  color: #fff;
+  z-index: 2;
+}
+
+.features__card-title {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+}
+
+.features__card-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 3em;
+  overflow: hidden;
+}
