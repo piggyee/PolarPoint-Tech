@@ -1,0 +1,61 @@
+/* src/components/FooterSection.scss */
+
+.footer {
+  position: relative;
+  /* 把背景拉回到真正的 viewport 左右邊緣 */
+  left: calc((100% - 100vw) / 2);
+  width: 100vw;
+
+  background: #0f1121;
+  padding: 1.5rem 0;
+  color: #fff;
+  font-size: 0.875rem;
+  overflow: visible;
+}
+
+.footer__inner {
+  /* 內容區繼續受限 max-width，置中顯示 */
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+.footer__left {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+.footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;               /* 連結之間間距 */
+}
+
+.footer__link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer__link:hover {
+  color: #50e3c2;            /* Hover 變成淺綠色 */
+}
+
+/* 手機版：上下置中、間距縮小 */
+@media (max-width: 600px) {
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer__left {
+    width: 100%;
+  }
+  .footer__nav {
+    justify-content: center;
+  }
+}

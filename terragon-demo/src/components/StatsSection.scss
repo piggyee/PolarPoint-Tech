@@ -1,0 +1,91 @@
+/* src/components/StatsSection.scss */
+
+.stats {
+  position: relative;
+  width: 100%;
+  background: #f2f2f2;
+  overflow: hidden;
+  padding: 4rem 0;
+
+  // world-map 圖片，可改成 SVG 或 url()
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150%;
+    height: 100%;
+    background: url('../assets/world-map-light.png') center top no-repeat;
+    background-size: cover;
+    opacity: 0.1;
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  &__subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2.5rem;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  &__item {
+    flex: 1 1 calc(20% - 2rem);
+    max-width: calc(20% - 2rem);
+    background: transparent;
+    text-align: center;
+  }
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+  &__big {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a3d8f;
+    margin-bottom: 0.5rem;
+  }
+  &__small {
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.4;
+  }
+
+  // RWD
+  @media (max-width: 1024px) {
+    &__item {
+      flex: 1 1 calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
+  }
+  @media (max-width: 600px) {
+    &__items {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    &__item {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+  }
+}

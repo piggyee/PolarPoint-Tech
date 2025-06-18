@@ -1,6 +1,6 @@
 import React from 'react'
 import './Header.scss'
-import logo from '../assets/logo.png' // 確認 logo.svg 的路徑正確
+import logo from '../assets/logoNB.png' // 確認 logo.svg 的路徑正確
 
 const Header: React.FC = () => {
   return (

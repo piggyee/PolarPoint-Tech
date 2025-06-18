@@ -1,43 +1,65 @@
+/* Header.scss */
+
+/* 先保留原本沒動到的 */
 .header {
-    width: 100%;
-    background: #000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-  }
+  width: 100%;
+  background: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.header__logo img {
+  height: 100px;
+}
+
+.header__nav a {
+  color: #fff;
+  margin-right: 1.6rem;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.header__nav a:hover {
+  color: #0078ff;
+}
+
+/* src/components/Header.scss */
+.header__btn {
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  color: #fff;
+  background-color: transparent;               /* 内部透明 */
+  border: 2px solid transparent;               /* 预留边框位置 */
+  border-radius: 18px;                         /* 圆角 */
+  cursor: pointer;
   
-  .header__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-  }
-  
-  .header__logo img {
-    height: 28px;
-  }
-  
-  .header__nav a {
-    color: #fff;
-    margin-right: 1.6rem;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-  .header__nav a:hover {
-    color: #0078ff;
-  }
-  
-  .header__btn {
-    margin-left: 1rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.95rem;
-    background: #0078ff;
-    color: #fff;
-    border-radius: 4px;
-    transition: background 0.2s;
-  }
-  .header__btn:hover {
-    background: #005fcc;
-  }
-  
+  /* 双层背景：第 1 层是“填充”，第 2 层是“边框” */
+  background-image:
+    linear-gradient(to right, transparent, transparent),              /* 填充透明 */
+    linear-gradient(to right, #6f78ff, #50e3c2);                     /* 渐变边框 */
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+  transition: background-image 0.3s, box-shadow 0.3s;
+}
+
+.header__btn:hover {
+  /* hover 时把填充层也换成渐变，边框层保持不变 */
+  background-image:
+    linear-gradient(to right, #6f78ff, #50e3c2),                     /* 渐变填充 */
+    linear-gradient(to right, #6f78ff, #50e3c2);                     /* 渐变边框 */
+  box-shadow:
+    0 4px 12px rgba(111,120,255,0.5),
+    0 4px 20px rgba( 80,227,194,0.4);
+}
+
+
