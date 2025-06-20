@@ -1,0 +1,126 @@
+/* src/components/ContactPage.scss */
+
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact {
+  animation: slideUpFadeIn 0.6s ease-out both;
+  display: flex;
+  max-width: 960px;
+  margin: 4rem auto;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #fff;
+}
+
+.contact__left {
+  flex: 1;
+  padding: 2rem;
+  background: #000;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 1.5rem;
+    a {
+      color: #50e3c2;
+      text-decoration: underline;
+    }
+  }
+
+   
+}
+
+.contact__form {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;        /* 讓所有文字靠左 */
+
+  label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+    input,
+    textarea {
+      margin-top: 0.25rem;
+      padding: 0.5rem;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      background: transparent;
+      color: #fff;
+      resize: vertical;
+    }
+  }
+
+  /* 同意文字說明 */
+  .contact__consent-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #ccc;
+    margin-top: 1rem;
+  }
+
+  /* 核取方塊直式排列、靠左 */
+  .contact__consents {
+    display: flex;
+    flex-direction: column; /* 直式排列 */
+    gap: 0.75rem;           /* 每行之間間距 */
+    margin-top: 0.5rem;
+
+    label {
+      display: flex;
+      align-items: center; /* checkbox 與文字垂直置中 */
+      font-size: 0.9rem;
+      color: #fff;
+
+      input[type="checkbox"] {
+        width: 13px;
+        height: 13px;
+        margin-right: 8px; /* checkbox 與文字的間距 */
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  button {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: linear-gradient(90deg, #6f78ff, #50e3c2);
+    border: none;
+    border-radius: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+  }
+  .contact__form {
+    .contact__consents {
+      gap: 0.5rem;
+    }
+  }
+}

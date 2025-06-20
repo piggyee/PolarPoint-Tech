@@ -1,0 +1,23 @@
+{
+  "name": "polarpoint-tech",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piggyee/PolarPoint-Tech.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piggyee/PolarPoint-Tech/issues"
+  },
+  "homepage": "https://github.com/piggyee/PolarPoint-Tech#readme",
+  "description": "",
+  "dependencies": {
+    "react-router-dom": "^7.6.2"
+  }
+}
