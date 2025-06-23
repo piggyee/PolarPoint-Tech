@@ -1,65 +1,77 @@
-/* Header.scss */
-
-/* 先保留原本沒動到的 */
+/* src/components/Header.scss */
 .header {
-  width: 100%;
-  background: #000;
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  /* ▶ 將背景改為透明 */
+  background: transparent;
+  transition: all 0.3s;
   z-index: 100;
+
+  &.scrolled {
+    top: 16px;
+    width: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+
+    /* 改成實心深藍 */
+    background: #1F2535;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    left: 0;
+    right: 0;
+  }
 }
+
 
 .header__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 64px;
+  justify-content: center;     /* Logo + Nav 置中 */
+  height: 60px;
+  gap: 17rem;
 }
 
 .header__logo img {
   height: 100px;
+  margin-top: 7px; 
 }
 
-.header__nav a {
-  color: #fff;
-  margin-right: 1.6rem;
-  font-size: 0.95rem;
-  transition: color 0.2s;
-}
-.header__nav a:hover {
-  color: #0078ff;
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+
+  a {
+    color: #fff;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+
+    &:hover { color: #0078ff; }
+  }
 }
 
-/* src/components/Header.scss */
 .header__btn {
-  position: relative;
-  display: inline-block;
   padding: 0.5rem 1.2rem;
   font-size: 0.95rem;
   color: #fff;
-  background-color: transparent;               /* 内部透明 */
-  border: 2px solid transparent;               /* 预留边框位置 */
-  border-radius: 20px;                         /* 圆角 */
+  border-radius: 20px;
   cursor: pointer;
-  
-  /* 双层背景：第 1 层是“填充”，第 2 层是“边框” */
   background-image:
-    linear-gradient(to right, transparent, transparent),              /* 填充透明 */
-    linear-gradient(to right, #6f78ff, #50e3c2);                     /* 渐变边框 */
+    linear-gradient(to right, transparent, transparent),
+    linear-gradient(to right, #6f78ff, #50e3c2);
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
   transition: background-image 0.3s, box-shadow 0.3s;
+
+  &:hover {
+    background-image:
+      linear-gradient(to right, #6f78ff, #50e3c2),
+      linear-gradient(to right, #6f78ff, #50e3c2);
+    box-shadow:
+      0 4px 12px rgba(111, 120, 255, 0.5),
+      0 4px 20px rgba(80, 227, 194, 0.4);
+  }
 }
-
-.header__btn:hover {
-  /* hover 时把填充层也换成渐变，边框层保持不变 */
-  background-image:
-    linear-gradient(to right, #6f78ff, #50e3c2),                     /* 渐变填充 */
-    linear-gradient(to right, #6f78ff, #50e3c2);                     /* 渐变边框 */
-  box-shadow:
-    0 4px 12px rgba(111,120,255,0.5),
-    0 4px 20px rgba( 80,227,194,0.4);
-}
-
-

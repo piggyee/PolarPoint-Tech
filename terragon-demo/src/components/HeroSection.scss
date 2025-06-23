@@ -1,4 +1,15 @@
+
 /* src/components/HeroSection.scss */
+@import './styles/animations';
+
+.hero-section {
+  @extend .fade-block;
+  animation-delay: 0.1s;
+  /* 下面是你原本的內容 */
+  position: relative;
+  /* … */
+}
+
 
 /* 1. 先讓 hero 覆蓋整個視窗寬度 */
 .hero {
@@ -70,4 +81,3 @@
   .hero {
     padding-top: 64px;  /* 避開固定的 Header (height: 64px)，確保不被蓋住 */
   }
-  

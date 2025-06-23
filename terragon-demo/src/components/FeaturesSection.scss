@@ -1,5 +1,10 @@
-/* src/components/FeaturesSection.scss */
-/* src/components/FeaturesSection.scss */
+@import './styles/animations';
+
+.features-section {
+  @extend .fade-block;
+  animation-delay: 0.2s;
+  /* … */
+}
 .features {
   position: relative;
   margin-top: -200px;      /* 拉進 Hero 區 225px */

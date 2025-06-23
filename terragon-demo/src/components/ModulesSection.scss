@@ -1,4 +1,11 @@
 /* src/components/ModulesSection.scss */
+@import './styles/animations';
+
+.modules-section {
+  @extend .fade-block;
+  animation-delay: 0.3s;
+  /* … */
+}
 
 /* 1. 區塊背景與排版 */
 .modules {

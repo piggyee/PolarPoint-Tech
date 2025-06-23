@@ -1,4 +1,11 @@
-/* src/components/StatsSection.scss */
+
+@import './styles/animations';
+
+.stats-section {
+  @extend .fade-block;
+  animation-delay: 0.3s;
+  /* … */
+}
 
 .stats {
   position: relative;
