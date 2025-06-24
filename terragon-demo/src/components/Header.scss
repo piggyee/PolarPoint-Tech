@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   /* ▶ 將背景改為透明 */
-  background: transparent;
+  background:  #1F2535;
   transition: all 0.3s;
   z-index: 100;
 
@@ -25,13 +25,18 @@
   }
 }
 
-
+/* —— 初始狀態：Logo 與 Nav/按鈕 間距 —— */
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: center;     /* Logo + Nav 置中 */
   height: 60px;
-  gap: 17rem;
+  gap: 60rem;                   /* ▶ 初始 gap */
+}
+
+/* —— 滑動後：重設 Logo 與 Nav/按鈕 間距 —— */
+.header.scrolled .header__inner {
+  gap: 17rem;                    /* ▶ 滑動後 gap，可自行調整 */
 }
 
 .header__logo img {

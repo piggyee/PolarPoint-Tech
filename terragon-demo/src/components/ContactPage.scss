@@ -25,7 +25,17 @@
 .contact__left {
   flex: 1;
   padding: 2rem;
-  background: #000;
+  background-color: #1a1a1a; /* 底色 */
+
+  /* 仅保留 45° 斜线 */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05) 0,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  background-size: 16px 16px;
 
   h2 {
     font-size: 2rem;
@@ -38,9 +48,8 @@
       text-decoration: underline;
     }
   }
-
-   
 }
+
 
 .contact__form {
   flex: 1;
@@ -111,7 +120,6 @@
     }
   }
 }
-
 
 /* 手機版 */
 @media (max-width: 768px) {
