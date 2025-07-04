@@ -1,10 +1,5 @@
-@import './styles/animations';
+/* src/components/FeaturesSection.scss */
 
-.features-section {
-  @extend .fade-block;
-  animation-delay: 0.2s;
-  /* … */
-}
 .features {
   position: relative;
   margin-top: -200px;      /* 拉進 Hero 區 225px */
@@ -31,9 +26,6 @@
   max-width: 1280px;
   margin: 0 auto;
 }
-
-/* 以下略，同前面的排版、卡片樣式 */
-
 
 .features__title {
   font-size: 3rem;
@@ -86,7 +78,8 @@
   left: 0;
   width: 100%;
   height: 20%;
-  //background: rgba(0, 0, 0, 0.4);
+  /* 如果需要遮罩，再打開下面這行 */
+  /* background: rgba(0, 0, 0, 0.4); */
 }
 
 .features__text {

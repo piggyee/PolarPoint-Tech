@@ -1,6 +1,6 @@
 import React from 'react'
 import './HeroSection.scss'
-import heroBg from '../assets/hero-bg.png'
+
 import heroIcon from '../assets/hero-icon.png'
 import heroDashboard from '../assets/hero-dashboard.png'
 

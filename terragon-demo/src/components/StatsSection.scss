@@ -1,21 +1,14 @@
-
-@import './styles/animations';
-
-.stats-section {
-  @extend .fade-block;
-  animation-delay: 0.3s;
-  /* … */
-}
+/* src/components/StatsSection.scss */
 
 .stats {
   position: relative;
-  width: 100vw;              /* 滿版寬度 */
-  margin-left: calc(50% - 50vw); /* 置中滿版（等同 left/transform） */
-  background-color: #f2f2f2;  /* 整區灰底 */
+  width: 100vw;              
+  margin-left: calc(50% - 50vw); /* 置中滿版 */
+  background-color: #f2f2f2;     
   background-image: url('../assets/StatsBG.png');
   background-repeat: no-repeat;
-   background-position: center -20rem; /* 讓地圖從頂部開始 */
-  background-size: 80% auto;       /* 中間地圖佔寬80%，高度自動 */
+  background-position: center -20rem; 
+  background-size: 80% auto;       
   padding: 6rem 0;
   overflow: hidden;
 }

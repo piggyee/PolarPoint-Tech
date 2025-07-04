@@ -1,12 +1,4 @@
 /* src/components/ModulesSection.scss */
-@import './styles/animations';
-
-.modules-section {
-  @extend .fade-block;
-  animation-delay: 0.3s;
-  /* … */
-}
-
 /* 1. 區塊背景與排版 */
 .modules {
   position: relative;
@@ -36,7 +28,7 @@
   margin-bottom: 32px;
 }
 
-/* 2. Grid 排版：固定 gap、流動欄數、置中 */
+/* 2. Grid 排版：固定 gap、流動 column 數、置中 */
 .modules__grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(180px, 240px));

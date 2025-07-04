@@ -1,5 +1,17 @@
-/* src/components/ContactPage.scss */
+/* ContactPage.scss */
 
+/* 🔧 讓頁面撐滿畫面，高度不足時 footer 能貼底 */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contact-page .contact {
+  flex: 1;
+}
+
+/* 🎞 動畫 */
 @keyframes slideUpFadeIn {
   from {
     opacity: 0;
@@ -25,9 +37,8 @@
 .contact__left {
   flex: 1;
   padding: 2rem;
-  background-color: #1a1a1a; /* 底色 */
+  background-color: #1a1a1a;
 
-  /* 仅保留 45° 斜线 */
   background-image: repeating-linear-gradient(
     45deg,
     rgba(255, 255, 255, 0.05) 0,
@@ -41,8 +52,10 @@
     font-size: 2rem;
     margin-bottom: 1rem;
   }
+
   p {
     margin-bottom: 1.5rem;
+
     a {
       color: #50e3c2;
       text-decoration: underline;
@@ -50,20 +63,20 @@
   }
 }
 
-
 .contact__form {
   flex: 1;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  text-align: left;        /* 讓所有文字靠左 */
+  text-align: left;
   max-height: calc(100vh - 160px);
 
   label {
     display: flex;
     flex-direction: column;
     font-size: 0.9rem;
+
     input,
     textarea {
       margin-top: 0.25rem;
@@ -76,7 +89,6 @@
     }
   }
 
-  /* 同意文字說明 */
   .contact__consent-text {
     font-size: 0.8rem;
     line-height: 1.4;
@@ -84,32 +96,31 @@
     margin-top: 0rem;
   }
 
-  /* 核取方塊直式排列、靠左 */
   .contact__consents {
     display: flex;
-    flex-direction: column; /* 直式排列 */
-    gap: 0.75rem;           /* 每行之間間距 */
+    flex-direction: column;
+    gap: 0.75rem;
     margin-top: -1rem;
 
     label {
-     display: flex;           /* 水平排列 checkbox + 文字 */
-     flex-direction: row;     /* ← 強制 row */
-     align-items: center;           /* 垂直置中對齊 */
-     gap: var(--checkbox-label-gap);/* 方塊與文字間距，可由上方變數控制 */
-     font-size: 0.9rem;
-     color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--checkbox-label-gap);
+      font-size: 0.9rem;
+      color: #fff;
 
       input[type="checkbox"] {
         width: 13px;
         height: 13px;
-        margin: 0;          /* 關閉預設 margin，改由 gap 控制 */
+        margin: 0;
         flex-shrink: 0;
       }
     }
   }
 
   button {
-    margin-top: 0.25rem;
+    margin-top: 0.75rem;
     padding: 0.9rem;
     background: linear-gradient(90deg, #6f78ff, #50e3c2);
     border: none;
@@ -124,11 +135,12 @@
   }
 }
 
-/* 手機版 */
+/* 手機版 RWD */
 @media (max-width: 768px) {
   .contact {
     flex-direction: column;
   }
+
   .contact__form {
     .contact__consents {
       gap: 0.5rem;
